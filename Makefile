@@ -431,25 +431,25 @@ $(LUSEQUENCEREADER): $(LUSEQUENCEREADER_OBJ) | $(CNTKMATH_LIB)
 	@echo $(SEPARATOR)
 	$(CXX) $(LDFLAGS) -shared $(patsubst %,-L%, $(LIBDIR) $(LIBPATH)) $(patsubst %,$(RPATH)%, $(ORIGINDIR) $(LIBPATH)) -o $@ $^ -l$(CNTKMATH)
 
-########################################
-# UCIFastReader plugin
-########################################
-
-UCIFASTREADER_SRC =\
-	$(SOURCEDIR)/Readers/UCIFastReader/Exports.cpp \
-	$(SOURCEDIR)/Readers/UCIFastReader/UCIFastReader.cpp \
-	$(SOURCEDIR)/Readers/UCIFastReader/UCIParser.cpp \
-
-UCIFASTREADER_OBJ := $(patsubst %.cpp, $(OBJDIR)/%.o, $(UCIFASTREADER_SRC))
-
-UCIFASTREADER:=$(LIBDIR)/UCIFastReader.so
-ALL += $(UCIFASTREADER)
-SRC+=$(UCIFASTREADER_SRC)
-
-$(UCIFASTREADER): $(UCIFASTREADER_OBJ) | $(CNTKMATH_LIB)
-	@echo $(SEPARATOR)
-	$(CXX) $(LDFLAGS) -shared $(patsubst %,-L%, $(LIBDIR) $(LIBPATH)) $(patsubst %,$(RPATH)%, $(ORIGINDIR) $(LIBPATH)) -o $@ $^ -l$(CNTKMATH)
-
+#########################################
+## UCIFastReader plugin
+#########################################
+#
+#UCIFASTREADER_SRC =\
+#	$(SOURCEDIR)/Readers/UCIFastReader/Exports.cpp \
+#	$(SOURCEDIR)/Readers/UCIFastReader/UCIFastReader.cpp \
+#	$(SOURCEDIR)/Readers/UCIFastReader/UCIParser.cpp \
+#
+#UCIFASTREADER_OBJ := $(patsubst %.cpp, $(OBJDIR)/%.o, $(UCIFASTREADER_SRC))
+#
+#UCIFASTREADER:=$(LIBDIR)/UCIFastReader.so
+#ALL += $(UCIFASTREADER)
+#SRC+=$(UCIFASTREADER_SRC)
+#
+#$(UCIFASTREADER): $(UCIFASTREADER_OBJ) | $(CNTKMATH_LIB)
+#	@echo $(SEPARATOR)
+#	$(CXX) $(LDFLAGS) -shared $(patsubst %,-L%, $(LIBDIR) $(LIBPATH)) $(patsubst %,$(RPATH)%, $(ORIGINDIR) $(LIBPATH)) -o $@ $^ -l$(CNTKMATH)
+#
 ########################################
 # LibSVMBinaryReader plugin
 ########################################
