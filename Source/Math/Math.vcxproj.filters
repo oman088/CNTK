@@ -119,6 +119,7 @@
     <None Include="GPUWatcher.cu">
       <Filter>GPU</Filter>
     </None>
+    <None Include="Math.natvis" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Common">

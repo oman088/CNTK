@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AutoVisualizer xmlns="http://schemas.microsoft.com/vstudio/debugger/natvis/2010">
+  <Type Name="Microsoft::MSR::CNTK::Matrix&lt;*&gt;">
+    <DisplayString>{{rows = {m_baseMatrix._Ptr-&gt;m_numRows} cols = {m_baseMatrix._Ptr-&gt;m_numCols} type = {m_matrixType} location={m_currentDataLocation}}}</DisplayString>
+    <Expand>
+      <Item Name="sob">m_baseMatrix._Ptr-&gt;m_sob._Ptr</Item>
+      <ArrayItems>
+        <Size>m_baseMatrix._Ptr-&gt;m_numRows * m_baseMatrix._Ptr-&gt;m_numCols</Size>
+        <ValuePointer>m_baseMatrix._Ptr-&gt;m_sob._Ptr-&gt;m_pArray + m_baseMatrix._Ptr-&gt;m_sliceViewOffset</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+  <Type Name="Microsoft::MSR::CNTK::BaseMatrixStorage&lt;*&gt;">
+    <DisplayString>{{format = {m_format}, device = {m_computeDevice}}}</DisplayString>
+    <Expand>
+      <ArrayItems>
+        <Size>m_elemSizeAllocated</Size>
+        <ValuePointer>m_pArray</ValuePointer>
+      </ArrayItems>
+    </Expand>
+  </Type>
+</AutoVisualizer>
